@@ -1,0 +1,76 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.services {
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20px,auto));
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    &__box {
+        padding: 2rem;
+        width: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        border-bottom: 2px solid v.$green;
+        box-shadow: 0px 2px 7px rgba(14 55 54/15%);
+    }
+
+    &__box:hover {
+        background-color: v.$grisOscuro;
+        color: v.$blanco;
+    }
+
+    &__box h3 {
+        @include m.texto-fluido(0.8rem, 1rem);
+        font-weight: v.$bold;
+        margin: 0.7rem 0 0 0.4rem;
+    }
+    &__box .bx {
+        padding-top: 2rem;
+        font-size: 54px;
+        color: v.$mediumTurquesa;
+    }
+    &__box:hover .bx {
+        color: v.$green;
+    }
+    &__box a {
+        color: v.$grisOscuro;
+    }
+    &__box:hover a {
+        color: v.$blancoOpaco;
+        font-size: v.$fuente-principal;
+        font-weight: v.$regular;
+    }
+    &__box:hover a:hover {
+        color: v.$salmon;
+    }
+    
+}
+
+
+/*==================== MEDIA QUERIES ====================*/
+  
+@include m.telefono {
+    .services {
+        &__container {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+    }
+}
+
+@include m.tablet {
+    .services {
+        &__container {
+            grid-template-columns: 2fr;
+            justify-items: center;
+        }
+    }
+}

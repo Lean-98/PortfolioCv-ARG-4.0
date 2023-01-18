@@ -1,0 +1,156 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.skills {
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    &__content {
+        display: grid;
+        justify-items: center;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3rem;
+        cursor: pointer;
+    }
+
+    // &__img {
+    //     width: 80%;
+    //     padding-left: 4rem;
+    //     object-position: center;
+    //    margin: auto;
+    //    display: block;
+    // }
+
+    &__icon, &__arrow {
+        @include m.texto-fluido(2rem,2.6rem);
+        color: v.$MediumPurple;
+    }
+    
+    &__icon {
+        margin-bottom: 1.75rem;
+        margin-right: 1rem;
+    }
+
+    &__title {
+        @include m.texto-fluido(2.4rem,3rem);
+    }
+
+    &__subtitle {
+        @include m.texto-fluido(1.5rem,2rem);
+    }
+
+    &__arrow {
+        margin-left: auto;
+        transition: .4s;
+    }
+
+    &__titles {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        @include m.texto-fluido(2rem,2.6rem);
+    }
+
+    &__list {
+        row-gap: 2rem;
+        padding-left: 3rem;
+    }
+
+    &__name {
+        @include m.texto-fluido(1.2rem,1.4rem);
+        font-weight: v.$bold;
+    }
+
+    &__number {
+        display: flex;
+        align-items: center;
+        @include m.texto-fluido(1.2rem,1.4rem);
+        margin-left: 1rem;
+    }
+
+    &__bar, &__percentage {
+        height: 5px;
+        border-radius: .25rem;
+    }
+
+    &__bar {
+        background-color: v.$Thistle;
+    }
+
+     &__percentage {
+        display: block;
+        background-color: v.$hover;
+    }
+
+    &__html {
+        width: 90%;
+    }
+    &__css {
+        width: 80%;
+    }
+    &__js {
+        width: 70%;
+    }
+    &__react {
+        width: 60%;
+    }
+    &__php {
+        width: 80%;
+    }
+    &__node {
+        width: 60%;
+    }
+    &__firebase {
+        width: 90%;
+    }
+    &__python {
+        width: 40%;
+    }
+    // &__figma {
+    //     width: 90%;
+    // }
+    // &__adobePhotoshop {
+    //     width: 60%;
+    // }
+    // &__adobeXd {
+    //     width: 50%;
+    // }
+    // &__adobeIndesign {
+    //     width: 70%;
+    // }
+}
+
+
+/*==================== MEDIA QUERIES ====================*/
+  
+@include m.telefono {
+    .skills {
+        &__img img {
+            padding-left: 0;
+        }
+        &__img {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+     }
+}
+
+#darkmode {
+    position: absolute;
+    top: 1.4rem;
+    right: 2rem;
+}
+.scroll-down {
+    display: none;
+}

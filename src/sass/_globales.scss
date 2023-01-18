@@ -1,0 +1,83 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}  
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+  }
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+
+  .section {
+    display: grid;
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        @include m.texto-fluido(2.3rem,3rem);
+        font-weight: v.$black;
+        font-family: v.$fuente_headings;
+    }
+
+    &__subtitle {
+        display: block;
+        justify-content: center;
+        font-weight: v.$regular;
+        @include m.texto-fluido(1.5rem,2rem);
+    }
+    
+    &__title, &__subtitle {
+        text-align: center;
+    }
+}
+  
+
+/*==================== Up scroll  ====================*/
+.scrollTop{
+    position: fixed;
+    cursor: pointer;
+    visibility: hidden;
+    z-index: 100000;
+    opacity: 0;
+    bottom: 20px;
+    right: 10px;
+    border-radius: 50%;
+    transition: all 1s;
+    font-size: 2rem;
+    color: v.$blancoOpaco;
+    background-color: #815ac0; 
+}
+
+.scrollTop.active {
+    visibility: visible;
+    opacity: 1;
+}
+  
+/*==================== Scroll Personalized  ====================*/
+  
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: v.$green;
+}

@@ -1,0 +1,63 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .heading span {
+        color: v.$green;
+    }
+    &__form{
+        width: 650px;     
+        margin-top: 2rem;   
+    }
+    form, input, textarea {
+        padding: 1.5rem;
+        border-radius: .5ren;
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: hsl(225, 100%, 44%, 0.1);
+        margin-bottom: 1rem;
+        color: v.$blanco;
+    }
+    form input::placeholder, textarea::placeholder {
+        color: v.$blanco;
+    }
+    form textarea {
+        resize: none;
+        height: 20rem;
+    }
+
+}
+
+.copyright {
+    padding: 2rem;
+    text-align: center;
+    @include m.texto-degradado(v.$RebeccaPurple, v.$MediumAquamarine);
+    color: #ffff;
+
+    a {
+        color: aquamarine;
+    }
+}
+
+/*==================== MEDIA QUERIES ====================*/
+
+@include m.telefono {
+    .contact {
+        &__form {
+            width: 300px;
+        }
+     }
+}
+
+@include m.tablet {
+    .contact {
+        &__form {
+            width: 350px;
+        }
+     }
+}

@@ -1,0 +1,86 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin telefono {
+    @media (max-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (max-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin xl_desktop {
+    @media (min-width: v.$xl_desktop) {
+        @content;
+    }
+}
+
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin contenedor {
+    width: min(95%, 140rem);
+    margin: 0 auto;
+}
+
+@mixin contenedor-md {
+    width: min(95%, 80rem);
+    margin: 0 auto;
+}
+
+@mixin contenedor-sm {
+    width: min(95%, 60rem);
+    margin: 0 auto;
+}
+
+@mixin headings {
+    font-family: v.$fuente_principal;
+    font-weight: v.$black;
+    margin: 2rem 0;
+}
+
+
+@mixin texto-fluido($min, $max) {
+   font-size: clamp($min, -0.8rem + 10vw , $max); 
+}
+
+@mixin img-fluido($min, $max) {
+    width: clamp($min, -0.8rem + 70vw , $max); 
+ }
+
+@mixin texto-degradado($inicio, $final) {
+    background: linear-gradient(to right, $inicio, $final);
+    background-clip: text;
+    color: transparent;
+    // -webkit-text-fill-color: transparent;
+}
+
+@mixin logo {
+    color: v.$blanco;
+    text-align: center;
+    margin-bottom: 2rem;
+    white-space: nowrap;
+    @include desktop {
+        text-align: left;
+        margin: 0;
+    }
+}
+
+@mixin shadow {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+@mixin bg-gradient($bg_color) {
+    background-image: linear-gradient(to left top, $bg_color, lighten($bg_color, 25%));
+}

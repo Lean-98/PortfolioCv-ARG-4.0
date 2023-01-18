@@ -1,0 +1,118 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+section {
+    padding: 2rem 10%;
+}
+body {
+    background-color: v.$bg-color;
+    color: v.$text-color;
+}
+*::selection {
+    background-color: v.$main-color;
+    color: v.$bg-color;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: v.$bg-color;
+    padding: 1.3rem 10%;
+    transition: 0.4s;
+    box-shadow: -3px -4px 8px #ffffff73 , 2px 2px 5px rgba(94, 104, 121, 0.288);
+
+    .logo {
+        @include m.texto-fluido(1.1rem,1.8rem);
+        font-weight: v.$regular;
+        font-family: v.$fuente-principal;
+            @include m.texto-degradado(v.$RebeccaPurple, v.$MediumAquamarine);
+            color: v.$grisClaro;
+        }  
+}
+
+header.shadow {
+    box-shadow:  0 0 2px rgb(14 55 54 /15%);
+}
+
+.navbar {
+    display: flex;
+
+   &__a {
+        font-size: 1.2rem;
+        font-weight: v.$regular;
+        padding:  1rem 2rem;
+        color: v.$text-color;
+    }
+    &__a:hover {
+        color: v.$hover;
+    }
+}
+
+
+.navbar.active {
+    top: 100%;
+}
+
+
+.bx {
+    &#menu-icon {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10001;
+    }
+    &#darkmode {
+        padding-top: 0.1rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+
+    }
+}
+
+/*==================== MEDIA QUERIES ====================*/
+@include m.telefono {
+    
+    header .navbar {
+        position: absolute;
+        left: 0;
+        top: -550px;
+        right: 0;
+        @include m.grid(1, 2rem);
+        background-color: v.$bg-color;
+        box-shadow: 0 3px 3px rgba(0 0 0/70%);
+        text-align: center;
+    }
+
+    .bx {
+        &#menu-icon {
+            display: flex;
+        }
+    }
+}
+
+@include m.desktop {
+    header .navbar {
+        position: absolute;
+        padding: 1.3rem 3%;
+        left: 0;
+        top: -550px;
+        right: 0;
+        @include m.grid(1, 2rem);
+        background-color: v.$bg-color;
+        box-shadow: 0 3px 3px rgba(0 0 0/70%);
+        text-align: center;
+    }
+    
+    .bx {
+        &#menu-icon {
+            display: flex;
+        }
+    }
+}
+

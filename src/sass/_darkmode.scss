@@ -1,0 +1,122 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+body.darkmode {
+    background-color: v.$azulOscuro;
+    color: v.$blanco;
+
+    header {
+        background-color: v.$azulOscuro;
+        box-shadow: -3px -4px 8px v.$blanco , 2px 2px 5px rgba(140, 236, 223, 0.8);
+        transition: 0.4s;
+    }
+
+/*==================== MEDIA QUERIES ====================*/
+
+    @include m.telefono {
+        .navbar.active {
+            background-color: v.$azulOscuro;
+            box-shadow: 0 3px 3px rgba(140, 236, 223, 0.8);
+            transition: 0.1s;
+        }
+    }
+
+    @include m.tablet {
+        .navbar.active {
+            background-color: v.$azulOscuro;
+            box-shadow: 0 3px 3px rgba(140, 236, 223, 0.8);
+            transition: 0.1s;
+        }
+    }
+
+    @include m.desktop {
+        .navbar.active {
+            background-color: v.$azulOscuro;
+            box-shadow: 0 3px 3px rgba(140, 236, 223, 0.8);
+            transition: 0.1s;
+        }
+    }
+
+    .navbar {
+        a {
+           color: v.$blanco; 
+        }
+        a:hover {
+        color: v.$mediumTurquesa;
+        }
+    }
+
+
+    .home {
+        &__text {
+            h4 {
+                color: v.$blancoOpaco;
+            }
+
+            h1 {
+                color: v.$blanco;
+            }
+
+            p {
+                color: v.$blancoOpaco;
+            }
+        }
+    }
+
+    .social {
+        a {
+            color: v.$blanco;
+        }
+        a:hover {
+            color: v.$MediumPurple;
+        }
+    }
+
+    .about {
+        &__text {
+            color: v.$blanco;
+        }
+    }
+    .btn2 {
+        background-color: v.$mediumTurquesa;
+        color: v.$grisOscuro;
+    }
+
+    .qualification {
+        &__subtitle {
+            color: v.$grisClaro;
+        }
+        &__calendar {
+        color: v.$silver;
+        }
+    }
+
+    .services {
+        &__box {
+            background-color: v.$grisOscuro;
+        }
+        &__box:hover {
+            background-color: v.$gris;
+            color: v.$blanco;
+        }
+        &__box .bx {
+            color: v.$green;
+        }
+        &__box:hover .bx {
+            color: v.$mediumTurquesa;
+        }
+        &__box a {
+            color: v.$blancoOpaco;
+        }
+    }
+
+    .contact {
+
+        form {
+            background-color: rgba(27, 151, 161, 0.8);
+        }
+        form input::placeholder, textarea::placeholder {
+            color: v.$blancoOpaco;
+        }
+    }
+}

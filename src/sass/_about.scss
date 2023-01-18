@@ -1,0 +1,68 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about {
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    &__img {
+        width: 100%;
+        @include m.img-fluido(250px,500px);
+        border-radius: 0.7rem;
+    }
+    &__text {
+        @include m.texto-fluido(1rem,1.8rem);
+        font-weight: v.$delgada;
+        font-family: v.$fuente_textos;
+        text-align: justify;
+    }
+
+}
+
+.heading {
+    text-align: center;
+    h2{
+        @include m.texto-fluido(2.3rem,3rem);
+    }
+    span {
+        @include m.texto-fluido(1.5rem,2rem);
+        font-weight: v.$regular;
+        text-align: center;
+        color:  rgb(100, 255, 218);
+    }
+}
+
+.information {
+    margin: 1rem 0 1.4rem;
+    information__box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.4rem;
+    }
+    span {
+        font-weight: v.$regular;
+        margin-left: 1rem;
+    }
+}
+
+/*==================== MEDIA QUERIES ====================*/
+@include m.telefono {
+        .about {
+        &__container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+     }
+}
+
+@include m.tablet {
+    .about {
+        &__container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
